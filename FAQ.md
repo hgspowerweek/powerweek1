@@ -2,4 +2,5 @@
 
 Collaborative place to collect information about the power week
 
-Successfully forked by Axel Frotscher
+Is there a special terminal command for a pull-request?
+
