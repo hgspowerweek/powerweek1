@@ -1,0 +1,12 @@
+example demonstrating filling a TTree with instances of a
+user class Particle
+
+build with 
+
+```
+mkdir build
+cmake ..
+make
+```
+
+run main.exe

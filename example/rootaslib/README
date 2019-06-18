@@ -1,0 +1,9 @@
+
+minimal example using a ROOT class
+showing how to link against and access headers using cmake
+
+
+mkdir build
+cd build
+cmake ..
+make

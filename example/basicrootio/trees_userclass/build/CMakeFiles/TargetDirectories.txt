@@ -1,0 +1,5 @@
+/Users/swenzel/git/PowerWeek/code/examples/basicrootio/trees_userclass/build/CMakeFiles/rebuild_cache.dir
+/Users/swenzel/git/PowerWeek/code/examples/basicrootio/trees_userclass/build/CMakeFiles/edit_cache.dir
+/Users/swenzel/git/PowerWeek/code/examples/basicrootio/trees_userclass/build/CMakeFiles/Position.dir
+/Users/swenzel/git/PowerWeek/code/examples/basicrootio/trees_userclass/build/CMakeFiles/main.exe.dir
+/Users/swenzel/git/PowerWeek/code/examples/basicrootio/trees_userclass/build/CMakeFiles/G__Position.dir

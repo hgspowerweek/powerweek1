@@ -1,0 +1,11 @@
+minimal example writing/reading arbitrary user object to a ROOT file
+
+build with 
+
+```
+mkdir build
+cmake ..
+make
+```
+
+run main.exe
