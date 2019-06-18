@@ -1,0 +1,22 @@
+This example shows the effect of alignment.
+Alignment is basically the largest power of 2 that divides a memory address, e.g. the address 18 is aligned to 2 bytes, but 48 is aligned to 16 bytes.
+By definition, access to an n-bytes value should always be aligned n-bytes.
+This means, a double (8 byte) must be placed at an address that is a multiple of 8, e.g. 10 is invalid.
+
+This example shows the performance when accessing memory (using single and double precision) with an aligned and an unaligned address.
+The program is compiled twice, one with and once without auto-vectorization.
+The auto-vectorized version access the unaligned address may crash, depending on compiler and CPU type, because the access is by definition invalid, and may lead to undefined behavior.
+The problem does not appear without auto-vectorization because the scalar instructions (on x86) can do unaligned access.
+
+The test with singles iterate over twice as many entries, such that the total memory size is equal to double.
+
+From a performance perspective:
+The non-vectorized aligned version without offset is achieves twice the throughput with doubles.
+The reason is that in this cache-local case the limit is cache-fetches.
+I.e., the processor can load a certain maximum number of values from the cache, irrespective of whether single or double.
+
+The vectorized aligned version uses SSE/AVX vector fetches, and thus achieves equal performance with float or double (because in both cases it fetches 128 bit (SSE) or 256 (bit) per fetch.
+
+The unaligned version is slower, because unaligned fetches are slower.
+
+The unaligned vectorized version can yield undefined results and even crash.

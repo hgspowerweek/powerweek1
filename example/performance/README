@@ -1,0 +1,16 @@
+This directory contains a set of micro performance examples.
+Each examples implements the same code in a slighly different way, yielding different performance.
+
+The examples can be build using "make", and can be run with "make run"
+
+Each directory contains a README.txt, which explains what happens behind the scenes.
+We suggest the attendants try to have a look at the code first, then guess which is the fastest variant, run the code, try to explain why there guess is correct / false, and only then look at the explanation!
+
+The code is usually split in multiple parts:
+bench.* files contain the actual kernel for the computation.
+driver.* files run the benchmark, and provide input and output.
+The splitting in the two files is to prevent certain compiler optimizations.
+It prevents that the compiler can inline the code from the bench into the driver, and then optimize away.
+Therefore, the compilation must not use link time optimization (lto) as shown in the 8th example.
+
+The class example 2 / 2a needs a third intermediate file, to allow inlining from bench.h to intermediate.cpp, but not into driver.cpp.

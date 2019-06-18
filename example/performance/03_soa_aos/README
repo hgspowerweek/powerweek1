@@ -1,0 +1,23 @@
+This example shows the performance of two data layouts, struct of array, and array of structs.
+
+struct position
+{
+        float x, sigmax, y, sigmay, z, sigmaz, r2;
+};
+position AOS[100];
+
+struct position_soa
+{
+        float *x, *sigmax, *y, *sigmay, *z, *sigmaz, *r2;
+};
+position_soa SOA[100];
+
+In the memory layout, in the AOS case, all members of the position are consecutive in memory, i.e. x1, sigmax1, y1, sigmay1, z1, sigmaz1, r21, x2, sigmax2, ...., x3, sigmax3, ....
+In the SOA case, all x come together, then the sigmax: x1, x2, x3, ...., x100, sigmax1, sigmax2, sigmax3, ..., sigmax100, y1, y2, y3, ...., y100, sigmay1, ....
+
+Depending on the access patter, the one or the other can be faster.
+The benchmark only needs the values x, y, z.
+A processor can only fetch entire cache lines from memory (at least 64 bytes), so it cannot fetch single x, y, and z values from the AOS exaple.
+It will always fetch the full struct.
+Because the example is limited by memory bandwidth, the AOS is slower then SOA:
+AOS fetches more data, which is not needed, than SOA.

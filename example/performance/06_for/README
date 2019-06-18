@@ -1,0 +1,5 @@
+Very simple example showing a two dimensional iteration in row-major and column-major fashion.
+The two loop do exactly the same thing, but in a different order.
+
+Row-major is by far superior, because the processor will fetch always at least one cache row, and can then use this data for multiple iterations.
+In the column-major fashion, the processor must fetch new data every time.

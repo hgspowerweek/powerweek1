@@ -1,0 +1,9 @@
+This example shows the execution overhead for function calls.
+
+It contains the following cases:
+1. The function can be inlined: Basically zero overhead, because the function call is replaced by the function body itself.
+2. Normal function call: This is the standard.
+3. Call of a virtual function, but intermediate.cpp knows the exact type of the class, such that it can replace the virtual function call with a direct call to the function (therefore same performance as case 2).
+4. Call of a virtual function, but the class is passed in as a pointer, so the compiler cannot optimize the virtual function call. The difference between cases 4 and 2 is the overhead for virtual function calls.
+5. Same as 4, but this time two pointers are passed in, which are called alternately, but they point to the same function. Same performance as case 4.
+6. Same as 5, but this time the two pointer point to different functions. Therefore, the branch prediction of the processor cannot work well, such that case 6 is slower than case 5.

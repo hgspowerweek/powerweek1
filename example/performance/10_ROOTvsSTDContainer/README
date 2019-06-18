@@ -1,0 +1,8 @@
+This example demonstrates the performance
+advantage of modern STL containers compared to the (now deprecated) ROOT implementations.
+
+Note that the comparison is not 100% exact, as ROOT container usually save pointers to objects
+whereas with std::vector this is usually not done (but possible).
+
+The performance gain is mainly due to non-virtual dispatch in STL and inlining the comparison operation.
+

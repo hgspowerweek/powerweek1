@@ -1,0 +1,8 @@
+When iterating small loops, the overhead for the loop (increment, comparison, conditional jump) can be significant compared to the calculation performed in the loop.
+
+The compilers might already optimize that by performing multiple loop iterations at once.
+
+This example manually unrolls a loop, with different unrolling levels.
+
+A too strong unrolling usually yields bad results, because it blows up the source code, consumes L1 instruction cache, and prevents certain other CPU features.
+This is usually an optimization performed at a very late stage only for compute-intense inner loops, with moderate factors of ~ 2 to 8.

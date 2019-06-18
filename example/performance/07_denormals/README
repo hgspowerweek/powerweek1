@@ -1,0 +1,10 @@
+This example shows floating point performance depending on (random) input values.
+Naively, one would assume that the floating point throughput does not depend on the input.
+
+Certain cases can speed up floating point computation, i.e. nan * x = nan for all x.
+In this case, the CPU can skip the entire computation.
+
+But a much stronger effect can be causeed by denormals / subnormals.
+This is a range of very small floating point number close to zero, which are not computet efficiently.
+Have a look at wikipedia if you are interested.
+In order to gurantee fast processing, one can enable flush-denormals-to-zero and read-denormals-as-zero flags, at the sacrifice of IEEE float compatibility.

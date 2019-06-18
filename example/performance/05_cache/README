@@ -1,0 +1,7 @@
+The example shows the data transfer rate iterating over buffers of different sizes.
+The iteration count is chosen as 1/bufferSize such that the totam amount of memory access is always the same.
+
+With increasing buffer size, the throughput first increases, and then decreases stepwise.
+The increase at the beginning is because the overhead for loop and function call become less dominant.
+The first steep decrease is when the buffer sizes reaches the processor's L1 cache size, such that the data does not longer fit in the L1 cache.
+Depending on the architecture, one might see up to two more steps at L2 and L3 cache sizes, but this can also appear as a smooth decrease over time.

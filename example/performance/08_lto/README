@@ -1,0 +1,5 @@
+LTO (Link Time Optimization) is a technique to optimize a program over multiple compilation units.
+I.e. if one has two separate units, compiled separately, the compiler cannot inline a function from one unit into another.
+With LTO, this is possible.
+LTO increases compilation time and memory demand significantly.
+The examples compiles the same program with and without LTO and shows the possible speed gain.

@@ -1,0 +1,16 @@
+This examples show the data size of a struct with padding.
+
+A native type which is n bytes large must be placed at an address that is a multiple of n.
+I.e. a double (8 bytes) must not be placed at address 4, but only at 8, 16, etc.
+A struct will padd bytes to enforce this alignment.
+Also, in order to allow arrays of structs, the total struct size must be padded as well to a multiple of its largest member.
+
+In the example, the first char member is followed by 7 bytes of padding, to achieve a correct address for the double member.
+No padding is needed before the int member.
+However, the struct itself needs an alignment of 8 bytes (because of the double member), so the int member is followed by 4 padding bytes.
+
+This makes the total struct size 24 bytes (1 char, 7 padding, 8 double, 4 int, 4 padding).
+
+The cls_good_padding struct optimize the layout, such that there is only 3 bytes of padding at the end, and the size of the struct decreases to 16 bytes.
+
+The virtual example needs an additional 8 byte ptr for the virtual function table, increasing the total struct size to 32 bytes.
