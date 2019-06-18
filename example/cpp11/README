@@ -1,0 +1,3 @@
+to compile call
+make <name>
+where <name> is the base name for the file (so without '.cpp')
