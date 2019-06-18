@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 project(myproject)
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 14)
 find_package(ROOT REQUIRED)
 include_directories(${ROOT_INCLUDE_DIRS})
 
