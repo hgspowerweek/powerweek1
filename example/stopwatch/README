@@ -1,0 +1,6 @@
+A very simple timer based on C++11 chrono that can be used
+to benchmark/measure the time of code sections
+
+
+see in main.cxx how to use
+
