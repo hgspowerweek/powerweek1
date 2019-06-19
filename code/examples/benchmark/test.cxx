@@ -53,21 +53,22 @@ static void complexFunctionSeqDouble(benchmark::State& state) {
 }
 BENCHMARK(complexFunctionSeqDouble);
 
-static void complexFunctionPar(benchmark::State& state) {
-  vector<float> data(state.range(0.));
-  iota(data.begin(), data.end(), decltype(data)::value_type(0.));
-
-  for (auto _ : state) {
-  
-    for_each(execution::par, data.begin(), data.end(), [](auto& x) {
-      x = complexFunction(x);
-    });
-
-    auto sum = std::accumulate(data.begin(), data.end(), decltype(data)::value_type(0));
-    benchmark::DoNotOptimize(sum);
-  }
-}
-BENCHMARK(complexFunctionPar)->RangeMultiplier(64)->Range(2,2<<18);
+// this won't work without recent tbb
+//static void complexFunctionPar(benchmark::State& state) {
+//  vector<float> data(state.range(0.));
+//  iota(data.begin(), data.end(), decltype(data)::value_type(0.));
+//
+//  for (auto _ : state) {
+//  
+//    for_each(execution::par, data.begin(), data.end(), [](auto& x) {
+//      x = complexFunction(x);
+//    });
+//
+//    auto sum = std::accumulate(data.begin(), data.end(), decltype(data)::value_type(0));
+//    benchmark::DoNotOptimize(sum);
+//  }
+//}
+//BENCHMARK(complexFunctionPar)->RangeMultiplier(64)->Range(2,2<<18);
 
 static void complexFunctionOMP(benchmark::State& state) {
   vector<float> data(state.range(0.));
