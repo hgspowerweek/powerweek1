@@ -8,7 +8,7 @@ auto constexpr K = S - 1;
 template <typename T>
 T core_kernel(T a, T b, T c) {
   auto d = c;
-  auto cond = c < T(10.f);
+  auto cond = c >= T(10.f);
   d(cond) = T(2.f) * a;
   return a * std::exp(d) + b;
 }
