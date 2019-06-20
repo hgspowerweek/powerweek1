@@ -1,5 +1,5 @@
 This example demonstrates the use of Vc for SIMD programming
-on a simple kernel (kernel1).
+on a simple kernel (kernel1). Here google_benchmark is used to benchmark the timing.
 
 The evolution of the kernels is as follows
 
